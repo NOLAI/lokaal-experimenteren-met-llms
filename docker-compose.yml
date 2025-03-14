@@ -1,0 +1,52 @@
+version: '3.8'
+services:
+# Ollama service: beheert en draait de LLM-modellen
+  ollama:
+    volumes:
+      - ollama:/root/.ollama # Persistente opslag voor gedownloade modellen
+    container_name: ollama
+    pull_policy: always
+    tty: true
+    restart: unless-stopped
+    image: ollama/ollama:latest
+    ports:
+      - 11434:11434 # API-poort voor Ollama
+    environment:
+      - OLLAMA_KEEP_ALIVE=-1m # Voorkomt dat modellen te snel worden verwijderd uit geheugen
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+  
+  # Open WebUI: gebruiksvriendelijke webinterface
+  ollama-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: ollama-webui
+    restart: unless-stopped
+    volumes:
+      - open-webui:/app/backend/data # Persistente opslag voor gebruikersinstellingen, chats, etc.
+    depends_on:
+      - ollama # Start pas nadat Ollama-container draait
+    ports:
+      - 3000:8080 # De webinterface is toegankelijk op poort 3000
+    environment:
+      - 'OLLAMA_BASE_URL=http://ollama:11434' # Verbinding naar Ollama service
+      - 'ENABLE_IMAGE_GENERATION=True' # Schakelt beeldgeneratie in (indien ondersteund door model)
+    extra_hosts:
+      - host.docker.internal:host-gateway # Maakt verbinding met host machine mogelijk
+
+  #Watchtower houdt docker containers automatisch up-to-date
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: unless-stopped
+    volumes:
+      # Watchtower heeft toegang tot docker nodig om images te kunnen updaten
+      - /var/run/docker.sock:/var/run/docker.sock
+  
+volumes:
+  ollama: {} # Volume voor modelopslag
+  open-webui: {} # Volume voor webui-data
