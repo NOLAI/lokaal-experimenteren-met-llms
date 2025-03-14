@@ -23,11 +23,13 @@ Tip: Kijk op tweakers voor de meest actuele prijzen van computer hardware. https
 
 ### **Hardware-keuzegids: welke GPU voor welke modellen?**
 
-**GPU Model** **VRAM** **Max. Model Grootte** **Aanbevolen Modellen** **Geschatte Kosten**
-
----
-
-RTX 4060 8GB Tot 7B parameters Gemma-7b, Phi-2, Qwen-7b €300-€350 RTX 4070 Super 12GB Tot 14B parameters DeepSeek-R1-14b, Phi-3-mini, Qwen-14b €550-€650 RTX 4080 16GB Tot 20B parameters Mistral-Large, Llama3-8x2 €800-€1000 RTX 4090 24GB Tot 30-40B parameters Llama-3-70b (quantized), Mixtral-8x7b €1400-€1800 2x RTX 4090 48GB 70B+ parameters DeepSeek-V2, Llama-3-70b €2800-€3600
+| GPU Model | VRAM | Max. Model Grootte | Aanbevolen Modellen | Geschatte Kosten |
+|---|---|---|---|---|
+| RTX 4060 | 8GB Tot 7B parameters | Gemma-7b, Phi-2, Qwen-7b | €300-€350 | 
+| RTX 4070 Super | 12GB Tot 14B parameters | DeepSeek-R1-14b, Phi-3-mini, Qwen-14b | €550-€650 | 
+| RTX 4080 | 16GB | Tot 20B parameters | Mistral-Large, Llama3-8x2 | €800-€1000 |
+| RTX 4090 | 24GB | Tot 30-40B parameters | Llama-3-70b (quantized), Mixtral-8x7b | €1400-€1800 | 
+| 2x RTX 4090 | 48GB | 70B+ parameters | DeepSeek-V2, Llama-3-70b | €2800-€3600 |
 
 **Toelichting**: Kleinere modellen (7B) werken prima binnen een experimenteer omgeving.
 
