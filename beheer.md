@@ -85,8 +85,10 @@ Pas deze instellingen aan om te experimenteren.
 Open WebUI biedt een aantal andere interessante opties:
 
 - **API endpoints** https://docs.openwebui.com/getting-started/api-endpoints/ als je niet de interface wil gebruiken maar een model programmatisch wil benaderen is er een optie voor een HTTP API.
-- **System prompts** https://docs.openwebui.com/features/chat-features/chat-params/#system-prompt-and-advanced-parameters-hierarchy-chart hiermee kan je specifieke instructie aan een model geven hoe deze zich tijden een chat moet gedragen.
+- **System prompts** https://docs.openwebui.com/features/chat-features/chat-params/#system-prompt-and-advanced-parameters-hierarchy-chart hiermee kan je specifieke instructie aan een model geven hoe deze zich tijdens een chat moet gedragen.
 - **Filter functions** https://docs.openwebui.com/features/plugin/functions/filter/ hiermee kan je programmatisch inkomende chatberichten en LLM antwoorden aanpassen.
+- **Standaard prompts instellen** De admin kan prompt suggesties toevoegen. Open webUI heeft een aantal standaard prompts, zoals "Explain options trading", maar deze zijn in het Engels en niet altijd relevant voor elke organisatie. Zie het screenshot.
+![Standaard prompt instellen](uploads/standardprompt.png)
 
 ## Beheer
 
